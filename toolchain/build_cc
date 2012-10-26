@@ -8,19 +8,19 @@ rm -rf binutils-*
 
 echo "[DOWNLOADING REQUIRED FILES]"
 # Get archives
-wget http://ftp.gnu.org/gnu/binutils/binutils-2.22.tar.bz2
-wget http://ftp.gnu.org/gnu/gcc/gcc-4.7.1/gcc-4.7.1.tar.bz2
+wget http://ftp.gnu.org/gnu/binutils/binutils-2.23.tar.bz2
+wget http://ftp.gnu.org/gnu/gcc/gcc-4.7.2/gcc-4.7.2.tar.bz2
 
 echo "[EXTRACTING ARCHIVES]"
 # Extract archives
-bzip2 -dc binutils-2.22.tar.bz2 | tar -xf -
-bzip2 -dc gcc-4.7.1.tar.bz2 | tar -xf -
+bzip2 -dc binutils-2.23.tar.bz2 | tar -xf -
+bzip2 -dc gcc-4.7.2.tar.bz2 | tar -xf -
 
 echo "[BUILDING BINUTILS]"
 # Build binutils
 mkdir build-binutils
 cd build-binutils
-../binutils-2.22/configure --target=$TARGET --prefix=$PREFIX --disable-nls
+../binutils-2.23/configure --target=$TARGET --prefix=$PREFIX --disable-nls
 make all
 make install
 
@@ -28,11 +28,11 @@ cd ../
 
 echo "[BUILDING GCC]"
 # Build GCC
-cd gcc-4.7.1
+cd gcc-4.7.2
 ./contrib/download_prerequisites
 cd ../
 mkdir build-gcc
 cd build-gcc
-../gcc-4.7.1/configure --target=$TARGET --prefix=$PREFIX --disable-nls --enable-languages=c --without-headers --with-gnu-as --with-gnu-ld
+../gcc-4.7.2/configure --target=$TARGET --prefix=$PREFIX --disable-nls --enable-languages=c --without-headers --with-gnu-as --with-gnu-ld
 make all-gcc
 make install-gcc
