@@ -1,4 +1,4 @@
-ARMGNU ?= arm-none-eabi
+ARMGNU = arm-none-eabi
 BUILD = build/
 SOURCE = source/
 TARGET = kernel.img
