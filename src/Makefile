@@ -2,7 +2,7 @@ TARGET = arm-none-eabi
 AS = $(TARGET)-as
 CC = $(TARGET)-gcc
 LD = $(TARGET)-ld
-CFLAGS = -Wall -nostdlib -nostartfiles -nodefaultlibs -c
+CFLAGS = -Wall -O2 -nostdlib -nostartfiles -ffreestanding -c
 LDFLAGS = -T linker.ld
 C_SOURCES = blinking.c
 C_OBJECTS = $(C_SOURCES:.c=.o)
