@@ -11,10 +11,13 @@ ASM_OBJECTS = $(ASM_SOURCES:.s=.o)
 
 all: asm kernel
 
+clean:
+	rm -f *.o
+
 asm: $(ASM_OBJECTS)
 
 .s.o:
-	$(AS) -I $< -o $@
+	$(AS) $< -o $@
 
 kernel: $(C_OBJECTS)
 
