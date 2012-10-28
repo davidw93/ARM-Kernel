@@ -1,7 +1,9 @@
 #include "led.h"
+#include "framebuffer.h"
 
 int start_kernel(void)
 {
-    blink_active();
+    led_init();
+    framebuffer_init();
     return 0;
 }

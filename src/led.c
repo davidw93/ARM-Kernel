@@ -1,7 +1,7 @@
 #include "led.h"
 #include "common.h"
 
-void blink_active(void) 
+void led_init(void)
 {
     unsigned int rand_var;
     rand_var = G32(GPFSEL1);
@@ -9,6 +9,10 @@ void blink_active(void)
     rand_var|=1<<18;
     P32(GPFSEL1, rand_var);
 
+}
+
+void blink_active(void)
+{
     led_flash_multiple(5, HALFSEC);
     led_flash_multiple(2, QUARTERSEC);
 }
