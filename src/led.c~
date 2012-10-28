@@ -25,7 +25,7 @@ void led_flash_multiple(unsigned const int count, unsigned const int time)
 
 void led_flash(unsigned const int time)
 {
-    P32(GPSET, 1<<16);
+	P32(GPSET, 1<<16);
     wait(time, time);
     P32(GPCLR, 1<<16);
     wait(time, 0);
