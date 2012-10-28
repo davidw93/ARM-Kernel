@@ -9,6 +9,9 @@
 
 extern void P32(unsigned int, unsigned int);
 extern unsigned int G32(unsigned int);
+extern void *memcpy(void *p1, const void *p2, int n);
+extern void *memmove(void *d, const void *s, unsigned c);
+extern void *memclr(void *p1, int v);
 
 void wait(const unsigned int time, const unsigned int condition);
 

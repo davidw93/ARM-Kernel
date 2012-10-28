@@ -6,7 +6,7 @@ CFLAGS = -Wall -O2 -nostdlib -nostartfiles -ffreestanding -c
 LDFLAGS = -T linker.ld
 C_SOURCES = led.c common.c main.c mailbox.c framebuffer.c
 C_OBJECTS = $(C_SOURCES:.c=.o)
-ASM_SOURCES = start.s
+ASM_SOURCES = start.s memfunc.s
 ASM_OBJECTS = $(ASM_SOURCES:.s=.o)
 
 all: asm kernel
