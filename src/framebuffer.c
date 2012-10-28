@@ -31,7 +31,7 @@ static void framebuffer_fail(unsigned int num)
     }
 }
 
-void framebuffer_init(void)
+void framebuffer_init()
 {
     unsigned int var;
     unsigned int count;
