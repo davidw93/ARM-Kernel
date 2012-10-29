@@ -23,7 +23,7 @@ static unsigned int screenbase, screensize;
 static unsigned int fb_x, fb_y, pitch;
 static unsigned int max_x, max_y;
 
-static void framebuffer_fail(unsigned int num)
+void framebuffer_fail(unsigned int num)
 {
 	while(1)
 		led_flash_multiple(num, QUARTERSEC);
@@ -139,7 +139,6 @@ void framebuffer_init(void)
 	max_x = fb_x / CHARSIZE_X;
 	max_y = fb_y / CHARSIZE_Y;
 
-	console_write("\n    Shit son this counts as output!");
 }
 
 static int consx = 0;
@@ -151,7 +150,7 @@ static unsigned short int bgcolour = 0;
 static unsigned int colour_stack[] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 static unsigned int colour_sp = 8;
 
-static void framebuffer_vert_scroll(void)
+void framebuffer_vert_scroll(void)
 {
 	unsigned int source;
 	register unsigned int rowbytes = CHARSIZE_Y * pitch;
