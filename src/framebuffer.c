@@ -7,12 +7,12 @@
 
 #define FAIL_GET_RESOLUTION		1
 #define FAIL_GOT_INVALID_RESOLUTION	2
-#define FAIL_SETUP_FRAMEBUFFER	3
+#define FAIL_SETUP_FRAMEBUFFER		3
 #define FAIL_INVALID_TAGS		4
 #define FAIL_INVALID_TAG_RESPONSE	5
 #define FAIL_INVALID_TAG_DATA		6
 #define FAIL_INVALID_PITCH_RESPONSE	7
-#define FAIL_INVALID_PITCH_DATA	8
+#define FAIL_INVALID_PITCH_DATA		8
 
 #define CHARSIZE_X	6
 #define CHARSIZE_Y	10
@@ -22,6 +22,16 @@
 static unsigned int screenbase, screensize;
 static unsigned int fb_x, fb_y, pitch;
 static unsigned int max_x, max_y;
+
+unsigned int get_screenbase()
+{
+	return screenbase;
+}
+
+unsigned int get_pitch()
+{
+	return pitch;
+}
 
 void framebuffer_fail(unsigned int num)
 {
@@ -138,7 +148,6 @@ void framebuffer_init(void)
 
 	max_x = fb_x / CHARSIZE_X;
 	max_y = fb_y / CHARSIZE_Y;
-
 }
 
 static int consx = 0;
@@ -242,7 +251,7 @@ void console_write(char *text)
 			*ptr = bgcolour;
 		}
 
-		if(++consx >=max_x)
+		if(++consx >= max_x)
 		{
 			consx = 0;
 			if(consy<(max_y-1))

@@ -14,5 +14,6 @@ extern void *memmove(void *d, const void *s, unsigned c);
 extern void *memclr(void *p1, int v);
 
 void wait(const unsigned int time, const unsigned int condition);
+char* toChar(int input, char *output);
 
 #endif
